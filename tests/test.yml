@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    RW_APT_CACHE_UPDATE: yes
+    MYSQL_USERS:
+      host: localhost
+      root:
+        password: geheim
+      users:
+        grafana:
+          state: present
+          name: grafana
+          password: geheim
+          privileges: "grafana.*:ALL,GRANT"
+          hosts:
+            - "%"
+      databases:
+        grafana:
+          name: grafana
+          state: present
+  roles:
+    - { role: ansible-role-mysql_users, tags: [ 'mysql_users' ], _mysql_users: "{{ MYSQL_USERS }}" }

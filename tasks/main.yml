@@ -1,0 +1,15 @@
+---
+
+- name: Install Python Module 'mysqldb'
+  apt: name=python-mysqldb state=present update_cache={{ RW_APT_CACHE_UPDATE|default('no') }}
+
+- name: Manage Databases
+  mysql_db: name={{ item.value.name }} login_host={{ _mysql_users.host }} login_user=root login_password={{ _mysql_users.root.password }} state={{ item.value.state }}
+  with_dict: '{{ _mysql_users.databases }}'
+
+- name: Manage Users
+  mysql_user: name={{ item.0.name }} password={{ item.0.password }} host={{ item.1 }} login_host={{ _mysql_users.host }}  login_user=root login_password={{ _mysql_users.root.password }} state={{ item.0.state }} priv={{ item.0.privileges|default('') }}
+  with_subelements:
+    - '{{ _mysql_users.users }}'
+    - hosts
+

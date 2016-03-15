@@ -1,0 +1,15 @@
+galaxy_info:
+  author: Lukas Pustina
+  description: Manages users and databases for a MySQL compatible DB server like MySQL, Galera etc.
+  company: Rheinwerk
+  license: license (MIT)
+  min_ansible_version: 2.0
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  galaxy_tags:
+    - mysql
+    - system
+dependencies: []
+
