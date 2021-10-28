@@ -3,7 +3,7 @@ MySQL Users
 
 This roles manages users and databases for a MySQL compatible DB server like MySQL, Galera etc.
 
-[![Build Status](https://travis-ci.org/Rheinwerk/ansible-role-mysql_users.svg?branch=master)](https://travis-ci.org/Rheinwerk/ansible-role-mysql_users)
+[![Build Status](https://github.com/Rheinwerk/ansible-role-mysql_users/actions/workflows/ci.yml/badge.svg)](https://github.com/Rheinwerk/ansible-role-mysql_users/actions/workflows/ci.yml)
 
 Requirements
 ------------
